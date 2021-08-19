@@ -1,0 +1,51 @@
+{
+  "npmScope": "frontend",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "build-storybook"
+        ]
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "admin-panel": {
+      "tags": []
+    },
+    "admin-panel-e2e": {
+      "tags": [],
+      "implicitDependencies": ["admin-panel"]
+    },
+    "nv-global": {
+      "tags": []
+    },
+    "nv-global-e2e": {
+      "tags": [],
+      "implicitDependencies": ["nv-global"]
+    }
+  }
+}
